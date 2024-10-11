@@ -29,6 +29,10 @@
 :description: Lesson 5: Adding Security. Implementing Application User Logon - Apache NetBeans
 :keywords: Apache NetBeans, Tutorials, Lesson 5: Adding Security. Implementing Application User Logon
 
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
+
 In this lesson you implement the logon functionality for a wisher. This affects the following files:
 
 *  `index.php` 
@@ -55,7 +59,7 @@ Oracle Database users: Click link:https://netbeans.org/projects/www/downloads/do
 [[_saving_the_wisher_s_id_in_the_session_upon_creation]]
 == Saving the Wisher's ID in the Session Upon Creation
 
-A link:http://us2.php.net/manual/en/ref.session.php[+Session+] is persistent storage for transferring information from one page to another without using an xref:./wish-list-lesson5.adoc#_html_form_for_logon_on_index_php[+HTML input form+]. This functionality is supported through the predefined PHP array  `$_SESSION` .
+A link:http://us2.php.net/manual/en/ref.session.php[+Session+] is persistent storage for transferring information from one page to another without using an xref:kb/docs/php/wish-list-lesson5.adoc#_html_form_for_logon_on_index_php[+HTML input form+]. This functionality is supported through the predefined PHP array  `$_SESSION` .
 
 For the sake of security, after a new wisher is created he should be logged on automatically without filling in a form. Therefore you need to modify the  `createNewWisher.php`  file to implement the following functionality:
 
@@ -162,7 +166,7 @@ In the  `index.php`  file, enter the following code before the closing  `</body>
 
 *Note:* You can ignore warnings from the HTML validator.
 
-The code presents an xref:./wish-list-lesson3.adoc#htmlForm[+HTML form+] that enables entering the name and password of the user in the text fields. When the user clicks Edit My Wish List, the data is transferred to the same page, index.php.
+The code presents an xref:kb/docs/php/wish-list-lesson3.adoc#htmlForm[+HTML form+] that enables entering the name and password of the user in the text fields. When the user clicks Edit My Wish List, the data is transferred to the same page, index.php.
 
 [[_logon_validation]]
 === Logon Validation
@@ -277,7 +281,7 @@ To check that the logon functionality works correctly on the  `index.php`  front
 2. On the  `index.php`  page, enter Tom in the Username edit box and Tim in the Password edit box.
 3. Press Edit My Wish List. An error message is displayed (Note that browser window below is reduced to 600px width, which adds some line breaks): 
 
-image::./incorrectNamePasswordIndex.png[]
+image::kb/docs/php/incorrectNamePasswordIndex.png[]
 
 
 
@@ -286,7 +290,7 @@ image::./incorrectNamePasswordIndex.png[]
 
 . Press Edit My Wish list. The editWishList.php page is displayed: 
 
-image::./SuccessfulLogonOnIndexRedirectToEditWishList.png[]
+image::kb/docs/php/SuccessfulLogonOnIndexRedirectToEditWishList.png[]
 
 [[application_source_code_after_the_current_lesson_is_completed]]
 == Application Source Code after the Current Lesson Is Completed
@@ -298,8 +302,8 @@ Oracle Database users: Click link:https://netbeans.org/projects/www/downloads/do
 [[_next_steps]]
 == Next Steps
 
-xref:./wish-list-lesson4.adoc[+<< Previous lesson+]
+xref:kb/docs/php/wish-list-lesson4.adoc[+<< Previous lesson+]
 
-xref:./wish-list-lesson6.adoc[+Next lesson >>+]
+xref:kb/docs/php/wish-list-lesson6.adoc[+Next lesson >>+]
 
-xref:./wish-list-tutorial-main-page.adoc[+Back to the Tutorial main page+]
+xref:kb/docs/php/wish-list-tutorial-main-page.adoc[+Back to the Tutorial main page+]

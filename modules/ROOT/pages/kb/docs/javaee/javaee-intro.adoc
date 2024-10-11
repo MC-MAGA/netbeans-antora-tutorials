@@ -29,11 +29,15 @@
 :description: Introduction to Support for Java EE Technology in NetBeans IDE - Apache NetBeans
 :keywords: Apache NetBeans, Tutorials, Introduction to Support for Java EE Technology in NetBeans IDE
 
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
+
 NetBeans IDE has been developed in close cooperation with the Java EE and GlassFish teams to provide the tightest integration and easiest possible use of the Java EE specification. NetBeans IDE is the best way to quickly learn and become productive in Java EE programming.
 
 This document provides an introduction to the major concepts of the Java EE specifications and how they relate to your hands-on programming. The following topics are covered:
 
-image::./netbeans-stamp-80-74-73.png[title="Content on this page applies to the NetBeans IDE 7.2, 7.3, 7.4 and 8.0"]
+image::kb/docs/javaee/netbeans-stamp-80-74-73.png[title="Content on this page applies to the NetBeans IDE 7.2, 7.3, 7.4 and 8.0"]
 
 * <<annotations,Annotations Instead of Deployment Descriptors>>
 * <<ejb,Simplified EJB Software Development>>
@@ -74,7 +78,7 @@ public class HelloWorldSessionBean implements mypackage.HelloWorldSessionLocal {
 
 Code completion provides access to annotation attributes specific to the item under the cursor. For example, when you press Ctrl-Space in the brackets of a  ``@WebService()``  annotation, you see the following:
 
-image::./jax-ws-annotate.png[]
+image::kb/docs/javaee/jax-ws-annotate.png[]
 
 Each attribute has default values. Therefore, you do not need to specify any attributes unless you want to use a value other than the default value. In simple cases, the default value is sufficient, which means that you do not even need to provide attributes at all.
 
@@ -121,7 +125,7 @@ The Java Persistence API has the following key features:
 * *Detached entities.* Because entity beans are POJOs, they can be serialized and sent across the network to a different address space and used in a persistence-unaware environment. As a result, you no longer need to use data transfer objects (DTOs).
 * *EntityManager API.* Application programmers now use a standard EntityManager API to perform `Create Read Update Delete` (CRUD) operations that involve entities.
 
-The IDE provides tools to work with the new Java Persistence API. You can generate entity classes automatically from a database, or code entity classes by hand. The IDE also provides templates and graphic editors for creating and maintaining persistence units. See xref:./javaee-gettingstarted.adoc[+Getting Started with Java EE Applications+] for more information on using the Java Persistence API.
+The IDE provides tools to work with the new Java Persistence API. You can generate entity classes automatically from a database, or code entity classes by hand. The IDE also provides templates and graphic editors for creating and maintaining persistence units. See xref:kb/docs/javaee/javaee-gettingstarted.adoc[+Getting Started with Java EE Applications+] for more information on using the Java Persistence API.
 
 
 == Web Services
@@ -162,8 +166,8 @@ xref:front::community/mailing-lists.adoc[Send Feedback on This Tutorial]
 
 For more information about using NetBeans IDE to develop Java EE applications, see the following resources:
 
-* xref:./javaee-gettingstarted.adoc[+Getting Started with Java EE Applications+]
-* xref:../websvc/jax-ws.adoc[+Getting Started with JAX-WS Web Services+]
+* xref:kb/docs/javaee/javaee-gettingstarted.adoc[+Getting Started with Java EE Applications+]
+* xref:kb/docs/websvc/jax-ws.adoc[+Getting Started with JAX-WS Web Services+]
 * xref:kb/docs/java-ee.adoc[+Java EE &amp; Java Web Learning Trail+]
 
 To send comments and suggestions, get support, and keep informed on the latest developments on the NetBeans IDE Java EE development features, xref:front::community/mailing-lists.adoc[+join the nbj2ee@netbeans.org mailing list+].

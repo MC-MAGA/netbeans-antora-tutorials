@@ -33,6 +33,10 @@
 :keywords: Apache NetBeans, Tutorials, Developing General Java Applications
 :experimental:
 
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
+
 //================================================= The Title and Metadata (End)
 
 //============================================================= Preamble (Start)
@@ -41,7 +45,7 @@ The following short tutorial takes you through some of the basic steps of develo
 
 You will create an application that converts several words into a single word that contains one letter from each of the other words. The resulting word is called an _acrostic_.
 
-This tutorial takes approximately 30 minutes to complete. If you would like to do a quicker *Hello World* tutorial, see the xref:./quickstart.adoc[+NetBeans IDE Java Quick Start Tutorial+].
+This tutorial takes approximately 30 minutes to complete. If you would like to do a quicker *Hello World* tutorial, see the xref:kb/docs/java/quickstart.adoc[+NetBeans IDE Java Quick Start Tutorial+].
 
 //=============================================================== Preamble (End)
 
@@ -104,7 +108,7 @@ Since class *MyApp* is going to depend on class *MyLib*, you have to add *MyLib*
 
 In the *Projects* window, right-click the *Libraries* node for the *MyApp* project and choose *Add Project...* as shown in the image below.
 
-image::./addproj.png[]
+image::kb/docs/java/addproj.png[]
 
 If necessary, in the *Add Project* window browse to `_NetBeansProjects_` and, select the *MyLib* project folder. When you do so, you will see *Project Name: MyLib* and, *Project JAR Files: dist/MyLib.jar* can be added to the project.
 
@@ -343,7 +347,7 @@ Press kbd:[F7] or, select *Debug > Step Into* from the menu bar to step through 
 
 When the program reaches the end, the debugger windows close.
 
-For more information, see xref:./junit-intro.adoc[+Writing JUnit Tests in NetBeans IDE+].
+For more information, see xref:kb/docs/java/junit-intro.adoc[+Writing JUnit Tests in NetBeans IDE+].
 
 //================================== Testing and Debugging the Application (End)
 

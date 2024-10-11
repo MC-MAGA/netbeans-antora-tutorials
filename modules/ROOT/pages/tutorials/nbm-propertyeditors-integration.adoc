@@ -30,6 +30,10 @@
 :description: Integrated Property Editors in NetBeans - Apache NetBeans
 :keywords: Apache NetBeans Platform, Platform Tutorials, Integrated Property Editors in NetBeans
 
+ifdef::env-github[]
+:imagesdir: ../../images
+endif::[]
+
 The NetBeans IDE includes a visual editor for Swing user interfaces (UIs). Components are controlled using property editors which follow the Java Beans™ specification. This tutorial will show how to distribute components inside a NetBeans plug-in, how to provide custom property editors for individual properties or an entire class of properties of those components; and how to write property editors that are able to call into and use features of the NetBeans IDE.
 
 
@@ -42,7 +46,7 @@ It is possible to create generic property editors that will integrate with an ID
 For these cases, NetBeans provides APIs that fill some of the gaps in the beans spec. NetBeans also provides sophisticated user interface controls that can save time and create a better user experience if used.
 
  
-image::./property-editors_borderCustomEditor.png[] 
+image::tutorials/property-editors_borderCustomEditor.png[] 
 
 _ NetBeans' custom editor for Borders uses NetBeans' 
 Nodes and Explorer API to provide the list of available 
@@ -294,7 +298,7 @@ Doing these things involves overriding two targets in our module project's build
 1. Open the build script by expanding the module project in the *Projects* tab in the IDE, and the *Important Files* node under it, and double clicking the *Build Script* node. This corresponds to the file `build.xml` in the `BeanLibraryModule` directory which is the root of our module project.
 
 [start=2]
-1. Add the code found in  xref:./nbm-propertyeditors-integration.adoc#listing3[Listing 3] to the build script, below the line `<import file="nbproject/build-impl.xml"/>`.
+1. Add the code found in  xref:tutorials/nbm-propertyeditors-integration.adoc#listing3[Listing 3] to the build script, below the line `<import file="nbproject/build-impl.xml"/>`.
 
 [[listing3]]
 ===Listing 3: Module Build Script Changes
@@ -781,7 +785,7 @@ To really interact with the IDE, we should add support for a custom (pop-up wind
 [start=3]
 1. In the newly created JPanel form, add the following components from the Component Palette, arranging the UI as shown in <<figure2,figure 2>> and setting the variable names as shown below (to set the name, slow-double-click the name of each component in the *Inspector* window, then type the new name; component type shown in parentheses):
 
-image::./property-editors_colorValueCustomEditorUI.png[]
+image::tutorials/property-editors_colorValueCustomEditorUI.png[]
 
 _Figure 2: Color Value Custom Editor User Interface_
 
@@ -811,7 +815,7 @@ _Table 1: Component Variable Names and Types in ColorValueCustomEditor_
 1. Change the class signature of `ColorValueCustomEditor` to look like <<listing15,listing 15, implementing `ChangeListener` and `DocumentListener`>>.
 
 [start=8]
-1. Add the code in  xref:./nbm-propertyeditors-integration.adoc#listing16[listing 16] to `ColorValueCustomEditor` to implement the listener interfaces and handle events.
+1. Add the code in  xref:tutorials/nbm-propertyeditors-integration.adoc#listing16[listing 16] to `ColorValueCustomEditor` to implement the listener interfaces and handle events.
 
 
 === Listing 14: ColorValueCustomEditor Constructor
@@ -951,7 +955,7 @@ You may have noticed that `ColorValueEditor` implements a NetBeans interface, `o
 * Get the `Node.Property` object which created the property editor and represents the property being useful, using `env.getFeatureDescriptor()`. This is useful for passing hints to the property sheet about how an editor should behave when in the property sheet. Two useful hints are
 * Call `env.getFeatureDescriptor().setValue("canEditAsText", Boolean.FALSE)` to make the property non-editable inside the property sheet (so the only way to change the property is to open the custom editor).
 * Call `env.getFeatureDescriptor().setValue("suppressCustomEditor", Boolean.TRUE)` from a `PropertyEditor` subclass, to hide the [...] custom editor button on a property that would otherwise have one.
-* Register an `InplaceEditor.Factory` which can provide the UI component that is shown in the property sheet when the user edits the property without opening a custom editor (a tutorial on how to do that can  xref:./nbm-property-editors.adoc[be found here])
+* Register an `InplaceEditor.Factory` which can provide the UI component that is shown in the property sheet when the user edits the property without opening a custom editor (a tutorial on how to do that can  xref:tutorials/nbm-property-editors.adoc[be found here])
 * Get the Node for the file being edited like this:
 
 [source,java]

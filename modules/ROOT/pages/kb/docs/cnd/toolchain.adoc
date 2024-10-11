@@ -28,12 +28,17 @@
 :toc-title:
 :description: Using the C/C++ Tool Collection Descriptor - NetBeans IDE Tutorial - Apache NetBeans
 :keywords: Apache NetBeans, Tutorials, Using the C/C++ Tool Collection Descriptor - NetBeans IDE Tutorial
+include::front::partial$database.adoc[]
+
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
 
 //_Contributed by link:mailto:alexander.simon@oracle.com[+_Alexander Simon_+]
 //March 2014_ [Revision number: V8.0-1]
 
 
-image::./netbeans-stamp.png[title="Content on this page applies to the NetBeans IDE 8.0"]
+image::kb/docs/cnd/netbeans-stamp.png[title="Content on this page applies to the NetBeans IDE 8.0"]
 
 
 *To follow this tutorial, you need the following software.*
@@ -47,7 +52,7 @@ image::./netbeans-stamp.png[title="Content on this page applies to the NetBeans 
 |===
 
 
-See the xref:front::community/releases/80/install.adoc[NetBeans IDE Installation Instructions] and xref:front::community/releases/80/cpp-setup-instructions.adoc[Configuring the NetBeans IDE for C/C{pp}/Fortran] for information about downloading and installing the required software.
+See the xref:front::download/index.adoc[NetBeans IDE Installation Instructions] and xref:kb/docs/cnd/cpp-setup-instructions.adoc[Configuring the NetBeans IDE for C/C{pp}/Fortran] for information about downloading and installing the required software.
 
 
 == Introduction
@@ -318,7 +323,7 @@ Notice the debug flags are set to -g3 and -gdwarf-2, which are different from th
 
 The project tree should look similar to the following:
 
-image::./project.png[title="Project tree"]
+image::kb/docs/cnd/project.png[title="Project tree"]
 
 The Unit Test folders might not exist.
 
@@ -334,7 +339,7 @@ The Unit Test folders might not exist.
 
 The IDE shows the new tool collection:
 
-image::./options.png[title="Options panel"]
+image::kb/docs/cnd/options.png[title="Options panel"]
 
 [start=20]
 . Create a new C/C++ sample project  ``Welcome``  by selecting File > New Project > Samples > C/C++ > Welcome.
@@ -388,17 +393,30 @@ For the scheme of all supported tags and attributes of toolchain xml files, you 
 |===
 |Tags |Attributes |Description 
 
-|toolchain |Name of tool collection |
+|toolchain 
+| 
+|Name of tool collection
 
-|name |Name of tool collection |
+| 
+|name 
+|Name of tool collection 
 
-|display |Display name of tool collection |
+| 
+|display 
+|Display name of tool collection
 
-|family |Group name of tool collection |
+| 
+|family 
+|Group name of tool collection 
 
-|platforms |Supported platforms |
+|platforms 
+| 
+|Supported platforms 
 
-|stringvalue |List of supported platforms separated by comma. |
+| 
+|stringvalue 
+a|List of supported platforms separated by comma.
+
 Possible values are:
 
 * linux
@@ -408,49 +426,90 @@ Possible values are:
 * windows
 * mac
 * none
+
+|makefile_writer 
+| 
+|Custom makefile writer. 
+
+| 
+|class 
+|Class name of custom makefile writer. It should implement
+org.netbeans.modules.cnd.makeproject.spi.configurations.MakefileWriter. 
+
+|drive_letter_prefix 
+| 
+|Special prefix for file names 
+
+|stringvalue
+| 
+|"/" for unix 
+
+"/cygdrive/" for cygwin on Windows 
+
+|base_folders 
+|
+|Container for base_folder tags. 
+
+One or more base_folder tags are contained in one base_folders tag.
+
+|base_folder 
+|
+|Description of base directory for compilers.
+This tag can contain the following tags: 
+
+|
+|regestry 
+|Windows registry key of the tool. Note that the XML tag must be spelled "regestry" although this is a mispelling.
+
+|
+|pattern 
+|Regular expression that allows NetBeans IDE to find compiler in registry
+
+|
+|suffix 
+|Folder with executable files
+
+|
+|path_patern 
+|Regular expression that allows NetBeans IDE to find compiler by scanning paths. 
+Note that the XML tag must be spelled "path_patern" although this is a mispelling.
+
+|command_folders 
+|
+|Container for command_folder tags.
  
+One or more commander_folder tags are contained in one command_folders tag.
 
-|makefile_writer |Custom makefile writer. |
+|command_folder 
+|
+|Describes the directory where UNIX-like commands are located.
 
-|class |Class name of custom makefile writer. It should implement
-org.netbeans.modules.cnd.makeproject.spi.configurations.MakefileWriter. |
+Only needed for MinGW compiler on Windows. The command_folder tag can contain the following tags: 
 
-|drive_letter_prefix |Special prefix for file names |
+|
+|regestry 
+|Windows registry key of commands. Note that the XML tag must be spelled "regestry" although this is a mispelling. 
 
-|stringvalue |"/" for unix
-"/cygdrive/" for cygwin on Windows |
+|
+|pattern 
+|Regular expression that allows NetBeans IDE to find the commands folder in the registry
 
-|base_folders |Container for base_folder tags. 
-One or more base_folder tags are contained in one base_folders tag. |
+|
+|suffix 
+|Folder with executable files
 
-|base_folder |Description of base directory for compilers.
-This tag can contain the following tags: |
+|
+|path_patern 
+|Regular expression that allows NetBeans IDE to find commands. Note that the XML tag must be spelled "path_patern" although this is a mispelling.
 
-|regestry |Windows registry key of the tool. Note that the XML tag must be spelled "regestry" although this is a mispelling. |
+|scanner
+| 
+a|Name of error parser service, see <<errorhandler,Creating a Custom Compiler Error Handler>>
 
-|pattern |Regular expression that allows NetBeans IDE to find compiler in registry |
+|
+|id 
+|Name of error parser service 
 
-|suffix |Folder with executable files |
-
-|path_patern |Regular expression that allows NetBeans IDE to find compiler by scanning paths. Note that the XML tag must be spelled "path_patern" although this is a mispelling. |
-
-|command_folders |Container for command_folder tags. 
-One or more commander_folder tags are contained in one command_folders tag. |
-
-|command_folder |Describes the directory where UNIX-like commands are located.
-Only needed for MinGW compiler on Windows. The command_folder tag can contain the following tags: |
-
-|regestry |Windows registry key of commands. Note that the XML tag must be spelled "regestry" although this is a mispelling. |
-
-|pattern |Regular expression that allows NetBeans IDE to find the commands folder in the registry |
-
-|suffix |Folder with executable files |
-
-|path_patern |Regular expression that allows NetBeans IDE to find commands. Note that the XML tag must be spelled "path_patern" although this is a mispelling. |
-
-|scanner |Name of error parser service, see <<errorhandler,Creating a Custom Compiler Error Handler>> |
-
-|id |Name of error parser service 
 |===
 
 
@@ -463,8 +522,12 @@ This table lists the tags used to describe the compilers and specify compiler fl
 
 |c,cpp |Set of compiler flags are located in following sub nodes |
 
-|recognizer |Regular expression that allows the IDE to find compiler |For GNU under cygwin on Windows
+|recognizer 
+|Regular expression that allows the IDE to find compiler 
+a| For GNU under cygwin on Windows 
+....
 .*[\\/].*cygwin.*[\\/]bin[\\/]?$ 
+....
 
 |compiler |Compiler name (name of executable file) |gcc or g++ 
 

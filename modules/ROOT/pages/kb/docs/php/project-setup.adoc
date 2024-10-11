@@ -30,6 +30,10 @@
 :keywords: Apache NetBeans, Tutorials, Setting Up a PHP Project
 :page-reviewed: 2019-02-02
 
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
+
 This tutorial shows you how to set up a PHP project in NetBeans IDE.
 
 == Requirements
@@ -83,7 +87,7 @@ A copy of the source files must be kept in a subfolder of the document root. How
 . From the Default Encoding dropdown list, choose the default encoding for your project.
 . If you want to store NetBeans metadata in a different location than your source files, select "Put NetBeans metadata into a separate directory." For example, you might want to store your sources in your document root but the NetBeans metadata in your NetBeansProjects directory. 
 
-image::./new-php-project-m1.png[]
+image::kb/docs/php/new-php-project-m1.png[]
 
 
 . Click Next. The Run Configuration panel opens.
@@ -101,7 +105,7 @@ NOTE: If you are going to run the <<localServer,project on a local web server>>,
 . From the Default Encoding dropdown list, choose the default encoding for your project.
 . If you want to store NetBeans metadata in a different location than your source files, select "Put NetBeans metadata into a separate directory." For example, you might want to store your sources in your document root but the NetBeans metadata in your NetBeansProjects directory. 
 
-image::./new-php-project-with-ssources.png[]
+image::kb/docs/php/new-php-project-with-ssources.png[]
 
 
 . Click Next. The Run Configuration panel opens.
@@ -117,7 +121,7 @@ The document root is the folder where the local web server looks for files to op
 
 
 . If you want to store NetBeans metadata in a different location than your source files, select "Put NetBeans metadata into a separate directory." For example, you might want to store your sources in your document root but the NetBeans metadata in your NetBeansProjects directory.
-. Click Next. The Remote Connection panel opens. The tutorial xref:./remote-hosting-and-ftp-account.adoc[+Deploying a PHP Application to a Remote Web Server+] describes how to set up remote connections.
+. Click Next. The Remote Connection panel opens. The tutorial xref:kb/docs/php/remote-hosting-and-ftp-account.adoc[+Deploying a PHP Application to a Remote Web Server+] describes how to set up remote connections.
 
 
 == Specifying the Default Run Configuration of the New Project
@@ -132,7 +136,7 @@ A run configuration is a stored setting for running a PHP project. You can defin
 When you create a new PHP project, you create the project's default run configuration. To set the default run configuration for your project, choose the relevant option from the Run As dropdown list on the Run Configuration panel. The following options are available:
 
 * <<localServer,Local Web Site>>. To use this run configuration, you need the xref:kb/docs/php.adoc#configuration[+Apache http server installed+] and running.
-* xref:./remote-hosting-and-ftp-account.adoc[+Remote Web Site (FTP/SFTP) (Separate tutorial)+]. To use this configuration, you need a xref:./remote-hosting-and-ftp-account.adoc#registerHostingAccount[+hosting account+] on a remote server and an xref:./remote-hosting-and-ftp-account.adoc#createFTPAccount[+FTP account+] on this server.
+* xref:kb/docs/php/remote-hosting-and-ftp-account.adoc[+Remote Web Site (FTP/SFTP) (Separate tutorial)+]. To use this configuration, you need a xref:kb/docs/php/remote-hosting-and-ftp-account.adoc#registerHostingAccount[+hosting account+] on a remote server and an xref:kb/docs/php/remote-hosting-and-ftp-account.adoc#createFTPAccount[+FTP account+] on this server.
 * <<scriptCommandLine,Script>>. This run configuration does not require that a web server be installed and running. You only need a xref:kb/docs/php.adoc#configuration[+PHP engine+].
 
 The process for creating additional run configurations, or editing the default run configuration, is described in <<runConfiguration,Customizing the Project Setup: Run Configuration>>. It is almost identical to the process for creating the default run configuration, except that you use the Properties dialog of the existing project instead of the new project wizard.
@@ -147,7 +151,7 @@ To set up a local web site configuration:
 1. From the Run As dropdown list, choose Local Web Site.
 2. In the Project URL field, check the automatically generated URL address. Make sure that the Apache HTTP server listens to the default port 80. If not, specify the port number explicitly, in the format  ``localhost:<port number>`` .
 
-image::./run-configuration-local-server-project-with-existing-sources.png[]
+image::kb/docs/php/run-configuration-local-server-project-with-existing-sources.png[]
 
 
 . If you are creating the project from existing sources, you can choose which source file to use as the index file.
@@ -161,19 +165,19 @@ The wizard detects the Apache installation type, either a component or within a 
 
 === Remote Web Site
 
-See the tutorial xref:./remote-hosting-and-ftp-account.adoc[+Deploying a PHP Application to a Remote Web Server+].
+See the tutorial xref:kb/docs/php/remote-hosting-and-ftp-account.adoc[+Deploying a PHP Application to a Remote Web Server+].
 
 
 === Script
 
 1. From the Run As dropdown list, choose Script.
 
-image::./project-properties-script.png[]
+image::kb/docs/php/project-properties-script.png[]
 
 
 . To specify the location of the PHP engine, click the Configure button next to the Use Default PHP Interpreter box. The PHP Options dialog opens on the General tab.
 
-image::./run-config-script-options-m1.png[]
+image::kb/docs/php/run-config-script-options-m1.png[]
 
 
 . In the PHP 5 Interpreter field, specify the path to the  ``php.exe``  file. Use the Browse or Search... button, if necessary.
@@ -202,7 +206,7 @@ On the Sources panel:
 2. Select the <<location,Copy files from Sources Folder>> to another location, if necessary, and specify the path to the storage folder.
 3. Change the encoding, if necessary 
 
-image::./pprop-sources.png[]
+image::kb/docs/php/pprop-sources.png[]
 
 
 . To complete the project customization, click OK.
@@ -219,7 +223,7 @@ On the Run Configuration panel, modify the default run configuration and/or defi
 4. Define the run configuration settings in the same way as you defined the <<runConfiguration,default run configuration>> during the project creation and click OK. The new configuration is added to the Configuration dropdown list.
 5. To remove a configuration, select it from the Configuration dropdown list and click Delete. 
 
-image::./pprop-runconfig.png[]
+image::kb/docs/php/pprop-runconfig.png[]
 
 
 . To complete the project customization, click OK.
@@ -235,7 +239,7 @@ On the Include Path panel, specify the location of the files that you need to us
 3. To navigate through the list, use the buttons Move Up and Move Down.
 4. To remove a folder from the list of included folder, select the folder and click Remove.
 
-image::./pprop-include-path.png[]
+image::kb/docs/php/pprop-include-path.png[]
 
 
 . To complete the project customization, click OK.
@@ -250,7 +254,7 @@ On the Formatting panel, define the formatting style you want to apply to your s
 1. Choose "Use global options".
 2. Click Edit Global Options. The IDE Options dialog opens, on the Editor > Formatting tab. 
 
-image::./global-formatting.png[]
+image::kb/docs/php/global-formatting.png[]
 
 
 . From the Language dropdown list, select the language to which the settings should be applied.
@@ -260,7 +264,7 @@ image::./global-formatting.png[]
 
 ==== To define project-specific formatting:
 
-1. Choose "Use project-specific options". The hidden area displays. image:./pprop-formatting.png[]
+1. Choose "Use project-specific options". The hidden area displays. image:kb/docs/php/pprop-formatting.png[]
 2. From the Language dropdown list, select All Languages or PHP. In this case, All Languages means PHP and all other languages you have in your PHP project.
 3. From the Categories dropdown list, select the format items to which the setting will be applied.
 4. Set your desired formatting and click OK.

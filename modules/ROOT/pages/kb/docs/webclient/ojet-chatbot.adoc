@@ -29,6 +29,10 @@
 :description: Chatbot Integration with Oracle JET - Apache NetBeans
 :keywords: Apache NetBeans, Tutorials, Chatbot Integration with Oracle JET
 
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
+
 This document provides a step-by-step set of instructions guiding you through the process of integrating link:https://www.oracle.com/solutions/mobile/bots.html[+IBCS chatbots+] with the link:http://oraclejet.org[+Oracle JavaScript Extension Toolkit (JET)+]. JET empowers web and mobile developers by providing a modular toolkit based on modern JavaScript, CSS3, and HTML5 design and development principles.
 
 
@@ -36,13 +40,13 @@ This document provides a step-by-step set of instructions guiding you through th
 
 In this exercise you set up an Oracle JET application and explore its default content.
 
-1. Follow the steps described in xref:./ojet-settingup.adoc[+Setting Up an Oracle JET Application+].
+1. Follow the steps described in xref:kb/docs/webclient/ojet-settingup.adoc[+Setting Up an Oracle JET Application+].
 
 
 [start=2]
 . Open the project into an editor or IDE of your choice, such as NetBeans IDE, which displays the application as follows:
 
-image::./navdrawer.png[]
+image::kb/docs/webclient/navdrawer.png[]
 
 Spend some time browsing through the application structure. In the next section, you'll be introduced to the main concepts of the application structure.
 
@@ -53,7 +57,7 @@ In this step, now configure the Intelligent Bot Webhook channel. Then try out th
 
 1. Return to the Intelligent Bot user interface in a new browser tab, select the *Settings* button on the left menu, then the *Channels* tab and finally click the *Add Channel* button.
 
-image::./ccm029.png[]
+image::kb/docs/webclient/ccm029.png[]
 
 
 [start=2]
@@ -67,7 +71,7 @@ image::./ccm029.png[]
 
 1. In the application, in the  ``src/js``  folder, create a folder named  ``jet-composites`` . Unzip the content of the ZIP file into it, in a folder named  ``bot-client`` :
 
-image::./t060001.png[]
+image::kb/docs/webclient/t060001.png[]
 
 
 [start=2]
@@ -107,7 +111,7 @@ Can't get yours to work? Try  ``71DB044C-0624-4533-9C98-B8E76BAF919D``  as the c
 . 
 Run the application and interact with the ChatBot.
 
-image::./t060004.png[]
+image::kb/docs/webclient/t060004.png[]
 
 You have now hooked your ChatBot into an Oracle JET application.
 
@@ -128,8 +132,8 @@ xref:front::community/mailing-lists.adoc[Send Feedback on This Tutorial]
 [[seealso]]
 == See Also
 
-For more information about support for Oracle JET and a variety of HTML5 applications in the IDE on xref:../../../index.adoc[+netbeans.org+], see the following resources:
+For more information about support for Oracle JET and a variety of HTML5 applications in the IDE on xref:front::index.adoc[+netbeans.org+], see the following resources:
 
 * link:http://www.oracle.com/webfolder/technetwork/jet/globalExamples.html[+"Learn" section on the Oracle JET site+]. A set of official Oracle JET learning resources.
-* xref:./html5-editing-css.adoc[+Working with CSS Style Sheets in HTML5 Applications+]. A document that continues with the application that you created in this tutorial that demonstrates how to use some of the CSS wizards and windows in the IDE and how to use the Inspect mode in the Chrome browser to visually locate elements in your project sources.
-* xref:./html5-js-support.adoc[+Debugging and Testing JavaScript in HTML5 Applications+]. A document that demonstrates how the IDE provides tools that can help you debug and test JavaScript files in the IDE.
+* xref:kb/docs/webclient/html5-editing-css.adoc[+Working with CSS Style Sheets in HTML5 Applications+]. A document that continues with the application that you created in this tutorial that demonstrates how to use some of the CSS wizards and windows in the IDE and how to use the Inspect mode in the Chrome browser to visually locate elements in your project sources.
+* xref:kb/docs/webclient/html5-js-support.adoc[+Debugging and Testing JavaScript in HTML5 Applications+]. A document that demonstrates how the IDE provides tools that can help you debug and test JavaScript files in the IDE.

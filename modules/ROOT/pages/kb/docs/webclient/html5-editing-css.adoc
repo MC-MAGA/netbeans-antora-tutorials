@@ -29,11 +29,15 @@
 :description: Working with CSS Style Sheets in an HTML5 Application - Apache NetBeans
 :keywords: Apache NetBeans, Tutorials, Working with CSS Style Sheets in an HTML5 Application
 
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
+
 HTML5 applications typically combine HTML, CSS and JavaScript to create applications that are run in a browser and that are displayed on a variety of devices, including smartphones, tablets and laptops. This document demonstrates how the IDE provides tools that can help you work with CSS rules to modify the layout of an application. The IDE also provides support for creating and using Sass and LESS CSS preprocessors in your application.
 
 The NetBeans Connector extension for the Chrome browser can help you view applications as they would appear on various devices. The extension enables the Chrome browser and the IDE to communicate with each other. The Inspect in NetBeans mode can help you locate elements in your source code by selecting them in the browser. After you select an element in the browser you can use the IDE to view the CSS rules and properties that are applied to that element.
 
-For details on how to install the NetBeans Connector extension for the Chrome browser, see the tutorial xref:./html5-gettingstarted.adoc[+Getting Started with HTML5 Applications+].
+For details on how to install the NetBeans Connector extension for the Chrome browser, see the tutorial xref:kb/docs/webclient/html5-gettingstarted.adoc[+Getting Started with HTML5 Applications+].
 
 To watch a screencast of this tutorial, see xref:kb/docs/web/html5-css-screencast.adoc[+Video of Working with CSS Style Sheets in HTML5 Applications+].
 
@@ -51,7 +55,7 @@ To watch a screencast of this tutorial, see xref:kb/docs/web/html5-css-screencas
 
 |link:https://chrome.google.com/webstore/detail/netbeans-connector/hafdlehgocfcodbgjnpecfajgkeejnaa?utm_source=chrome-ntp-icon[+NetBeans Connector Extension for Chrome+] |1.1 or newer 
 
-|xref:../../../index.adocprojects/samples/downloads/download/Samples/Web%20Client/HTML5DemoSiteTemplate.zip[+HTML5DemoSiteTemplate.zip+] |-- 
+|link:https://web.archive.org/web/20170713202117/https://netbeans.org/projects/samples/downloads/download/Samples/Web%20Client/HTML5DemoSiteTemplate.zip[HTML5DemoSiteTemplate.zip] |-- 
 
 |CSS preprocessor |link:http://sass-lang.com/install[+Sass+] or
 link:http://lesscss.org/[+LESS+] 
@@ -59,24 +63,24 @@ link:http://lesscss.org/[+LESS+]
 
 *Notes:*
 
-* The xref:../../../index.adocprojects/samples/downloads/download/Samples/Web%20Client/HTML5DemoSiteTemplate.zip[+HTML5DemoSiteTemplate.zip+] is a site template that you will use when you create the project.
-* If you would like to compare your project with a working solution, you can download the xref:../../../index.adocprojects/samples/downloads/download/Samples/Web%20Client/HTML5DemoCssSiteTemplate.zip[+site template+] of the finished project.
+* The link:https://web.archive.org/web/20170713202117/https://netbeans.org/projects/samples/downloads/download/Samples/Web%20Client/HTML5DemoSiteTemplate.zip[HTML5DemoSiteTemplate.zip] is a site template that you will use when you create the project.
+* If you would like to compare your project with a working solution, you can download the link:https://web.archive.org/web/20170713202117/https://netbeans.org/projects/samples/downloads/download/Samples/Web%20Client/HTML5DemoCssSiteTemplate.zip[site template] of the finished project.
 * This document assumes you have some basic knowledge of, or programming experience with HTML, CSS, and JavaScript.
 
 
 == Creating the HTML5 Application
 
-In this tutorial you use a site template to create the HTML5 project. The site template that you use in this tutorial is the same template that was saved as a site template in the xref:./html5-gettingstarted.adoc[+Getting Started with HTML5 Applications+] tutorial. If you performed the steps in the Getting Started tutorial you can use the site template that you saved in the last section. Alternatively, you can download the HTML5DemoSiteTemplate.zip site template.
+In this tutorial you use a site template to create the HTML5 project. The site template that you use in this tutorial is the same template that was saved as a site template in the xref:kb/docs/webclient/html5-gettingstarted.adoc[+Getting Started with HTML5 Applications+] tutorial. If you performed the steps in the Getting Started tutorial you can use the site template that you saved in the last section. Alternatively, you can download the HTML5DemoSiteTemplate.zip site template.
 
 Perform the following steps to create the application from a site template.
 
-1. Download the HTML5 site template (xref:../../../index.adocprojects/samples/downloads/download/Samples/Web%20Client/HTML5DemoSiteTemplate.zip[+HTML5DemoSiteTemplate+])
+1. Download the HTML5 site template (link:https://web.archive.org/web/20170713202117/https://netbeans.org/projects/samples/downloads/download/Samples/Web%20Client/HTML5DemoSiteTemplate.zip[HTML5DemoSiteTemplate])
 2. Choose File > New Project (Ctrl-Shift-N; ⌘-Shift-N on Mac) in the main menu to open the New Project wizard.
 3. Select the *HTML5* category and then select *HTML5 Application*. Click Next.
 4. Type *HTML5DemoCss* for the project name and specify a location. Click Next.
 5. Select the *Select Template* option and click Browse to locate the site template ( ``HTML5DemoSiteTemplate.zip`` ). Click Finish. 
 
-image::./html5-css-newproject.png[title="Specify the site templat in the New HTML5 Application wizard"]
+image::kb/docs/webclient/html5-css-newproject.png[title="Specify the site templat in the New HTML5 Application wizard"]
 
 When you click Finish the IDE creates the project and opens the  ``index.html``  file in the editor. In the Projects window you can see that the project contains  ``index.html`` , a CSS style sheet, some JavaScript libraries and some images. The CSS Rules and Navigator windows also open in the IDE.
 
@@ -85,7 +89,7 @@ When you click Finish the IDE creates the project and opens the  ``index.html`` 
 
 In this tutorial you will run the application in the Chrome browser with the NetBeans Connector extension installed. When the extension is installed you can use the NetBeans menu in the browser to easily resize the browser window to view the application as it would appear on some common devices.
 
-*Notes.* For this tutorial it is recommended that you use the Chrome browser and install the NetBeans extension for Chrome. See the tutorial xref:./html5-gettingstarted.adoc[+Getting Started with HTML5 Applications+] for details on how to install the NetBeans Connector extension.
+*Notes.* For this tutorial it is recommended that you use the Chrome browser and install the NetBeans extension for Chrome. See the tutorial xref:kb/docs/webclient/html5-gettingstarted.adoc[+Getting Started with HTML5 Applications+] for details on how to install the NetBeans Connector extension.
 
 Perform the following steps to run the application in the Chrome browser.
 
@@ -106,7 +110,7 @@ You will also notice that the NetBeans icon is visible in the URL location field
 
 The window resizes to the size of a tablet browser in portrait mode. The menu stretches to fill the right side and the entire menu is visible.
 
-image::./html5-css-tabletbrowser1.png[title="Tablet Portrait display size in the browser"]
+image::kb/docs/webclient/html5-css-tabletbrowser1.png[title="Tablet Portrait display size in the browser"]
 
 If you select one of the default devices in the menu the browser window will resize to the dimensions of the device. This enables you to see how the application will look on the selected device. HTML5 applications are usually designed to respond to the size of the screen of the device on which they are viewed. You can use JavaScript and CSS rules that respond to the screen size and modify how the application is displayed so that the layout is optimized for the device.
 
@@ -114,11 +118,11 @@ If you select one of the default devices in the menu the browser window will res
 [start=4]
 . Click the NetBeans icon again and select Smartphone Landscape in the NetBeans menu. 
 
-image::./html5-css-tabletbrowser2.png[title="Select Smartphone Landscape in the NetBeans menu in the browser"]
+image::kb/docs/webclient/html5-css-tabletbrowser2.png[title="Select Smartphone Landscape in the NetBeans menu in the browser"]
 
 The window resizes to the size of a smartphone in landscape orientation and you can see that the bottom part of the menu is not visible without scrolling.
 
-image::./html5-css-smartphonebrowser1.png[title="Browser window resized to Smartphone Landscape"]
+image::kb/docs/webclient/html5-css-smartphonebrowser1.png[title="Browser window resized to Smartphone Landscape"]
 
 In the next section you will modify the style sheet so that it is possible to view the entire menu without scrolling on a smartphone in landscape view.
 
@@ -182,11 +186,11 @@ You can use code completion in the editor to help you add the link to the style 
 
 An element is highlighted when it is selected in Inspect mode. In this screenshot you can see that the image is highlighted in blue.
 
-image::./html5-css-selectimage.png[title="Image selected in Chrome browser"]
+image::kb/docs/webclient/html5-css-selectimage.png[title="Image selected in Chrome browser"]
 
 In the IDE you can see that the CSS rules and properties that apply to  ``img``  are listed in the CSS Styles window. The Selection tab of the CSS Styles window has three panes that provide details about the selected element.
 
-image::./html5-css-styleswindow1.png[title="CSS Styles window when image is selected"]
+image::kb/docs/webclient/html5-css-styleswindow1.png[title="CSS Styles window when image is selected"]
 
 
 ==== Upper Pane
@@ -211,7 +215,7 @@ The lower pane displays all the properties that are defined in the CSS rule for 
 [start=4]
 . Select the  ``css/mycss.css``  node and click the Edit CSS Rules button (images:./newcssrule.png[title="Edit CSS Rules button"]) window to open the Edit CSS Rules dialog box.
 
-image::./html5-css-styleswindow2.png[title="Edit CSS Rules dialog box"]
+image::kb/docs/webclient/html5-css-styleswindow2.png[title="Edit CSS Rules dialog box"]
 
 [start=5]
 . Select Element as the Selector Type and type *img* as the Selector.
@@ -219,7 +223,7 @@ image::./html5-css-styleswindow2.png[title="Edit CSS Rules dialog box"]
 [start=6]
 . Select  ``css/mycss.css``  as the Style Sheet and *(max-width:480px)* as the At-Rule. Click OK.
 
-image::./html5-css-editcssrules.png[title="Edit CSS Rules dialog box"]
+image::kb/docs/webclient/html5-css-editcssrules.png[title="Edit CSS Rules dialog box"]
 
 When you click OK the IDE creates a CSS rule for  ``img``  in the  ``css/mycss.css``  style sheet between the brackets of the media rule. The new rule is now listed in the Applied Styles pane.
 
@@ -233,7 +237,7 @@ You can see that there are two CSS rules for  ``img`` . One of the rules is loca
 [start=8]
 . Select the new  ``img``  rule (defined in  ``mycss.css`` ) in the Applied Styles pane of the CSS Styles window. 
 
-image::./html5-css-styleswindow2.png[title="Styles for the selected element in the CSS Styles window"]
+image::kb/docs/webclient/html5-css-styleswindow2.png[title="Styles for the selected element in the CSS Styles window"]
 
 In the lower pane of the window you can see that the rule has no properties.
 
@@ -244,7 +248,7 @@ In the lower pane of the window you can see that the rule has no properties.
 [start=10]
 . Type *90px* in the right column next to the  ``width``  property and hit Return on your keyboard. 
 
-image::./html5-css-styleswindow3.png[title="Image Properties pane of the CSS Styles window"]
+image::kb/docs/webclient/html5-css-styleswindow3.png[title="Image Properties pane of the CSS Styles window"]
 
 When you start typing in the value column you can see that a drop-down list displays common values for the  ``width``  property.
 
@@ -270,11 +274,11 @@ Some additional changes need to be made to the style sheet because the menu stil
 [start=11]
 . Select the unordered list ( ``<ul>`` ) element in the browser window.
 
-image::./html5-css-smartphonebrowser2.png[title="List element selected in browser"]
+image::kb/docs/webclient/html5-css-smartphonebrowser2.png[title="List element selected in browser"]
 
 When you select the element you can see that  ``<ul>``  is selected in the Browser DOM window and you can see the styles that are applied to that element in the CSS Styles window.
 
-image::./html5-css-browserdom.png[title="List element selected in Browser DOM window"]
+image::kb/docs/webclient/html5-css-browserdom.png[title="List element selected in Browser DOM window"]
 
 If you select  ``font-family``  in the CSS Styles window you can see that the  ``font-family``  property and value are defined in the  ``.ui-widget``  class selector.
 
@@ -285,7 +289,7 @@ If you select  ``font-family``  in the CSS Styles window you can see that the  `
 [start=13]
 . Expand the  ``css/mycss.css``  node in the CSS Styles window.
 
-image::./html5-css-styleswindow4.png[title="Style sheet selected in Document tab of CSS Styles window"]
+image::kb/docs/webclient/html5-css-styleswindow4.png[title="Style sheet selected in Document tab of CSS Styles window"]
 
 [start=14]
 . Click the Edit CSS Rules button (images:./newcssrule.png[title="Edit CSS Rules button"]) in the CSS Styles window to open the Edit CSS Rules dialog box.
@@ -314,11 +318,11 @@ When you change the value in the style sheet the page automatically updates in t
 
 You can type the property and value in the editor and use the code completion to help you. Alternatively, you can select the  ``.ui-widget``  rule in the upper pane and click the Add Property button in the lower pane to open the Add Property dialog box.
 
-image::./html5-css-csseditor1.png[title="CSS code completion in the editor"]
+image::kb/docs/webclient/html5-css-csseditor1.png[title="CSS code completion in the editor"]
 
 After you add the rule you can see that the menu now fits in the page.
 
-image::./html5-css-smartphonebrowser3.png[title="Page viewed in browser with new CSS rules applied"]
+image::kb/docs/webclient/html5-css-smartphonebrowser3.png[title="Page viewed in browser with new CSS rules applied"]
 
 [start=18]
 . Click the NetBeans icon in the browser and select Tablet Portrait in the menu.
@@ -366,12 +370,12 @@ When you click Finish the IDE generates the new folder in the  ``public_html``  
 [start=8]
 . Type the path to the Sass executable or click Browse to locate the executable on your local system. Click OK to close the Options window.
 
-image::./html5-css-cssoptions.png[title="Page viewed in browser with new CSS rules applied"]
+image::kb/docs/webclient/html5-css-cssoptions.png[title="Page viewed in browser with new CSS rules applied"]
 
 [start=9]
 . Select Compile Sass Files on Save in the New File wizard. Click OK.
 
-image::./html5-css-newsass.png[title="Page viewed in browser with new CSS rules applied"]
+image::kb/docs/webclient/html5-css-newsass.png[title="Page viewed in browser with new CSS rules applied"]
 
 When you click OK the new Sass file  ``mysass.scss``  opens in the editor.
 
@@ -435,10 +439,10 @@ xref:front::community/mailing-lists.adoc[Send Feedback on This Tutorial]
 [[seealso]]
 == See Also
 
-For more information about support for HTML5 applications in the IDE on xref:../../../index.adoc[+netbeans.org+], see the following resources:
+For more information about support for HTML5 applications in the IDE on xref:front::index.adoc[+netbeans.org+], see the following resources:
 
-* xref:./html5-gettingstarted.adoc[+Getting Started with HTML5 Applications+]. A document that demonstrates how to install the NetBeans Connector extension for Chrome and creating and running a simple HTML5 application.
-* xref:./html5-js-support.adoc[+Debugging and Testing JavaScript in HTML5 Applications+]. A document that demonstrates how the IDE provides tools that can help you debug and test JavaScript files in the IDE.
+* xref:kb/docs/webclient/html5-gettingstarted.adoc[+Getting Started with HTML5 Applications+]. A document that demonstrates how to install the NetBeans Connector extension for Chrome and creating and running a simple HTML5 application.
+* xref:kb/docs/webclient/html5-js-support.adoc[+Debugging and Testing JavaScript in HTML5 Applications+]. A document that demonstrates how the IDE provides tools that can help you debug and test JavaScript files in the IDE.
 * link:http://docs.oracle.com/cd/E50453_01/doc.80/e50452/dev_html_apps.htm[+Developing HTML5 Applications+] chapter in the link:http://www.oracle.com/pls/topic/lookup?ctx=nb8000&id=NBDAG[+Developing Applications with NetBeans IDE User's Guide+]
 
 For more information about jQuery, refer to the official documentation:

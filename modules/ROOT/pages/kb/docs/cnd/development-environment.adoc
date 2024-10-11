@@ -30,12 +30,16 @@
 :keywords: Apache NetBeans, Tutorials, Defining Your C/C++ Project's Development Environment
 include::front::partial$database.adoc[]
 
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
+
 //_March 2014_ [Revision number: V8.0-1]
 
 The following short tutorial takes you through the basic steps of selecting the build host and tool collection for building and debugging a C or C++ project in NetBeans IDE.
 
 
-image::./netbeans-stamp-80-74-73.png[title="Content on this page applies to the NetBeans IDE 7.3 and more recent"]
+image::kb/docs/cnd/netbeans-stamp-80-74-73.png[title="Content on this page applies to the NetBeans IDE 7.3 and more recent"]
 
 
 
@@ -52,12 +56,12 @@ image::./netbeans-stamp-80-74-73.png[title="Content on this page applies to the 
 |===
 
 
-See the xref:front::community/releases/80/install.adoc[NetBeans IDE Installation Instructions] for information on downloading and installing the required software.
+See the xref:front::download/index.adoc[NetBeans IDE Installation Instructions] for information on downloading and installing the required software.
 
 
 == Installing Tool Collections
 
-The Netbeans C/C{pp} module minimally requires a C compiler, C{pp} compiler, make utility, and gdb debugger. See xref:front::community/releases/80/cpp-setup-instructions.adoc[Configuring the NetBeans IDE for C/C{pp}/Fortran] for instructions on installing and configuring the required compilers and tools.
+The Netbeans C/C{pp} module minimally requires a C compiler, C{pp} compiler, make utility, and gdb debugger. See xref:kb/docs/cnd/cpp-setup-instructions.adoc[Configuring the NetBeans IDE for C/C{pp}/Fortran] for instructions on installing and configuring the required compilers and tools.
 
 
 == Specifying the Build Host
@@ -70,7 +74,7 @@ You can define remote build hosts in several ways:
 * Right-click a project, select Set Build Host > Manage Hosts, then click Add in the Build Host Manager dialog box.
 * Using the Options window: Choose Tools > Options > C/C++ > Build Tools and click the Edit button next to the Build Host list.
 
-See the xref:./remotedev-tutorial.adoc[C/C{pp} Remote Development Tutorial] for more information.
+See the xref:kb/docs/cnd/remotedev-tutorial.adoc[C/C{pp} Remote Development Tutorial] for more information.
 
 
 == Using the Tool Collection List
@@ -101,7 +105,7 @@ You can also add collections from the Tools > Options > C/C++ > Build Tools tab 
 
 The Add Tool Collection dialog box opens. 
 
-image::./add-collection.png[]
+image::kb/docs/cnd/add-collection.png[]
 
 [start=3]
 . In the Add New Tool Collection dialog box, type the directory path for the tool collection's executable files in the Base Directory field, or use the Browse button to navigate to the directory, which is usually called  ``bin`` .
@@ -126,7 +130,7 @@ To select a different tool collection for an existing project:
 3. In the build tools properties, make sure the Build Host is set to the host you want to build on.
 4. Select a collection from the Tool Collection dropdown list. 
 
-image::./select-collection.png[]
+image::kb/docs/cnd/select-collection.png[]
 
 [start=5]
 . Click OK.

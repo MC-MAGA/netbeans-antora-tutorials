@@ -30,6 +30,10 @@
 :keywords: Apache NetBeans, Tutorials, Storing NetBeans C/C++ Projects Under Version Control Systems
 include::front::partial$database.adoc[]
 
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
+
 //Contributed by Vladimir Kvashin, maintained by Alyona Stashkova
 //March 2014 [Revision number: V8.0-1]
 
@@ -49,7 +53,7 @@ Starting with NetBeans IDE 7.3 storing NetBeans C/C{pp} projects (mostly project
 |===
 
 
-See the xref:front::community/releases/74/install.adoc[NetBeans IDE Installation Instructions] and xref:front::community/releases/74/cpp-setup-instructions.adoc[Configuring the NetBeans IDE for C/C{pp}/Fortran] documents for information about downloading and installing the required software.
+See the xref:front::download/index.adoc[NetBeans IDE Installation Instructions] and xref:kb/docs/cnd/cpp-setup-instructions.adoc[Configuring the NetBeans IDE for C/C{pp}/Fortran] documents for information about downloading and installing the required software.
 
 
 == VCS Controlled Project Issues Resolved in NetBeans IDE
@@ -80,7 +84,7 @@ When some machine or user specific information gets into VCS, the project metada
 
 For projects from existing code or from binary, you may specify the list of environment variables to be used when storing project metadata. When the IDE stores the compiler options and an option value coincides with a variable value, a macros will be written instead.
 
-Consider the following example. There `ALT_BOOTDIR=/usr/jdk/latest` and `ALT_BOOTDIR` variables are listed in the above mentioned field in my environment. If the IDE realizes that the `-I/usr/jdk/latest/include` option was used when compiling a file, it will store `${ALT_BOOTDIR}/include` in the project metadata.
+Consider the following example. There `ALT_BOOTDIR=/usr/jdk/latest` and `ALT_BOOTDIR` variables are listed in the above mentioned field in my environment. If the IDE realizes that the `-I/usr/jdk/latest/include` option was used when compiling a file, it will store `$\{ALT_BOOTDIR}/include` in the project metadata.
 
 The Configure Code Assistance wizard also works on a per-configuration basis: it alters only the configuration that is currently active. So you can run it separately for each configuration, and get different code assistance settings for different platforms.
 
@@ -101,14 +105,14 @@ You can specify the list of such macros to ignore in the "Transient macros" fiel
 [.feature]
 --
 
-image::./proj_props_small.png[role="left", xref="image$./proj_props.png"]
+image::kb/docs/cnd/proj_props_small.png[role="left", xref="image$./proj_props.png"]
 
 --
 
 
 == Managed Projects
 
-In managed projects ("C/C++ Application", "C/C++ Dynamic Library", or "C/C++ Static Library" projects) you can also use environment variables to specify the compiler options. They should be preceded with a dollar sign and placed in curly braces as follows: `${ALTBOOTDIR}/include`.
+In managed projects ("C/C++ Application", "C/C++ Dynamic Library", or "C/C++ Static Library" projects) you can also use environment variables to specify the compiler options. They should be preceded with a dollar sign and placed in curly braces as follows: `$\{ALTBOOTDIR}/include`.
 
 
 == More Information about C/C++/Fortran Support

@@ -30,6 +30,10 @@
 :keywords: Apache NetBeans, Tutorials, Introduction to JavaServer Faces 2.x
 include::front::partial$database.adoc[]
 
+ifdef::env-github[]
+:imagesdir: ../../../../images
+endif::[]
+
 JavaServer Faces (JSF) is a user interface (UI) framework for Java web applications. It is designed to significantly ease the burden of writing and maintaining applications that run on a Java application server and render their UIs back to a target client. JSF provides ease-of-use in the following ways:
 
 * Makes it easy to construct a UI from a set of reusable UI components
@@ -46,7 +50,7 @@ This tutorial demonstrates how you can apply JSF 2.x support to a web applicatio
 * wire the managed bean to the application's web pages, and
 * convert the web pages into Facelets template files.
 
-The NetBeans IDE has provided long-standing support for JavaServer Faces. Starting with the release of JSF 2.0 and Java EE 6, NetBeans IDE has provided support for JSF 2.0 and JSF 2.1. For more information, see xref:./jsf20-support.adoc[+JSF 2.x Support in NetBeans IDE+].
+The NetBeans IDE has provided long-standing support for JavaServer Faces. Starting with the release of JSF 2.0 and Java EE 6, NetBeans IDE has provided support for JSF 2.0 and JSF 2.1. For more information, see xref:kb/docs/web/jsf20-support.adoc[+JSF 2.x Support in NetBeans IDE+].
 
 
 To complete this tutorial, you need the following software and resources.
@@ -75,7 +79,7 @@ To complete this tutorial, you need the following software and resources.
 
 Begin by opening the <<requiredSoftware,`jsfDemo` web application project>> in the IDE. Once you have the project opened in the IDE, you can add framework support to it using the project's Properties window.
 
-The IDE also allows you to create new projects with JSF 2.x support. For more information, see xref:./jsf20-support.adoc#creatingSupport[+Creating a New Project with JSF 2.x Support+].
+The IDE also allows you to create new projects with JSF 2.x support. For more information, see xref:kb/docs/web/jsf20-support.adoc#creatingSupport[+Creating a New Project with JSF 2.x Support+].
 
 1. Click the Open Project ( images:./open-project-btn.png[] ) button in the IDE's main toolbar, or press Ctrl-Shift-O (⌘-Shift-O on Mac).
 2. In the Open Project dialog, navigate to the location on your computer where you stored the unzipped tutorial project. Select it, then click Open Project to open it in the IDE.
@@ -86,12 +90,12 @@ The IDE also allows you to create new projects with JSF 2.x support. For more in
 
 . Run the project to see what it looks like in a browser. Either right-click the `jsfDemo` project node in the Projects window and choose Run, or click the Run Project ( images:./run-project-btn.png[] ) button in the main toolbar. The project is packaged and deployed to the GlassFish server, and your browser opens to display the welcome page (`index.xhtml`). 
 
-image::./run-project.png[title="Run the project to view it in a browser"]
+image::kb/docs/web/run-project.png[title="Run the project to view it in a browser"]
 
 
 . Click the Submit button. The response page (`response.xhtml`) displays as follows: 
 
-image::./response.png[title="The welcome and response pages are currently static pages"]
+image::kb/docs/web/response.png[title="The welcome and response pages are currently static pages"]
 
 Currently the welcome and response pages are static and, together with the `stylesheet.css` file and `duke.png` image, are the only application files accessible from a browser.
 
@@ -105,20 +109,20 @@ Currently the welcome and response pages are static and, together with the `styl
 
 . Select JavaServer Faces in the Add a Framework dialog box. Click OK. 
 
-image::./add-framework.png[title="Add JSF support to an existing project"]
+image::kb/docs/web/add-framework.png[title="Add JSF support to an existing project"]
 
 After selecting JavaServer Faces, various configuration options become available. Under the Libraries tab, you can specify how the project accesses JSF 2.x libraries. The JSF version that is available will depend upon the version of the IDE and the GlassFish server. The default option is to use the libraries included with the server (the GlassFish server). However, the IDE also bundles the JSF 2.x libraries. (You can select the Registered Libraries option if you want your project to use these.)
 
-image::./libraries-tab.png[title="Specify access to JSF 2.x libraries"]
+image::kb/docs/web/libraries-tab.png[title="Specify access to JSF 2.x libraries"]
 
 
 . Click the Configuration tab. You can specify how the Faces servlet is registered in the project's deployment descriptor. You can also indicate whether you want Facelets or JSP pages to be the used with the project. 
 
-image::./jsf-configuration.png[title="Specify Faces servlet options and preferred language"]
+image::kb/docs/web/jsf-configuration.png[title="Specify Faces servlet options and preferred language"]
 
 You can also easily configure your project to use various JSF component suites in the Components tab. To use a component suite you will need to download the required libraries and use the Ant Library manager to create a new library with the component suite libraries.
 
-image::./jsf-components.png[title="Specify Faces servlet options and preferred language"]
+image::kb/docs/web/jsf-components.png[title="Specify Faces servlet options and preferred language"]
 
 
 . Click OK to finalize changes and exit the Project Properties window.
@@ -155,7 +159,7 @@ The Faces servlet is registered with the project, and the `index.xhtml` welcome 
 
 You can locate the JSF libraries by expanding the project's Libraries node in the Projects window. If you are using the default libraries included with GlassFish Server 3.1.2 or GlassFish Server 4 this is the `javax.faces.jar` that is visible under the GlassFish Server node. (If you are using an older version of GlassFish you will see the `jsf-api.jar` and `jsf-impl.jar` libraries instead of `javax.faces.jar`.)
 
-The IDE's JSF 2.x support primarily includes numerous JSF-specific wizards, and special functionality provided by the Facelets editor. You explore these functional capabilities in the following steps. For more information, see xref:./jsf20-support.adoc[+JSF 2.x Support in NetBeans IDE+].
+The IDE's JSF 2.x support primarily includes numerous JSF-specific wizards, and special functionality provided by the Facelets editor. You explore these functional capabilities in the following steps. For more information, see xref:kb/docs/web/jsf20-support.adoc[+JSF 2.x Support in NetBeans IDE+].
 
 
 [[managedBean]]
@@ -165,7 +169,7 @@ You can use JSF's managed beans to process user data and retain it between reque
 
 A POJO is essentially a Java class that contains a public, no argument constructor and conforms to the link:http://download.oracle.com/javase/tutorial/javabeans/[+JavaBeans+] naming conventions for its properties.
 
-Looking at the <<staticPage,static page>> produced from running the project, you need a mechanism that determines whether a user-entered number matches the one currently selected, and returns a view that is appropriate for this outcome. Use the IDE's xref:./jsf20-support.adoc#managedBean[+Managed Bean wizard+] to create a managed bean for this purpose. The Facelets pages that you create in the next section will need to access the number that the user types in, and the generated response. To enable this, add `userNumber` and `response` properties to the managed bean.
+Looking at the <<staticPage,static page>> produced from running the project, you need a mechanism that determines whether a user-entered number matches the one currently selected, and returns a view that is appropriate for this outcome. Use the IDE's xref:kb/docs/web/jsf20-support.adoc#managedBean[+Managed Bean wizard+] to create a managed bean for this purpose. The Facelets pages that you create in the next section will need to access the number that the user types in, and the generated response. To enable this, add `userNumber` and `response` properties to the managed bean.
 
 * <<usingManagedBean,Using the Managed Bean Wizard>>
 * <<creatingConstructor,Creating a Constructor>>
@@ -182,7 +186,7 @@ Looking at the <<staticPage,static page>> produced from running the project, you
 * *Name:* UserNumberBean
 * *Scope:* Session
 
-image::./managed-bean.png[title="Use the JSF Managed Bean wizard to create a new managed bean"]
+image::kb/docs/web/managed-bean.png[title="Use the JSF Managed Bean wizard to create a new managed bean"]
 
 
 . Click Finish. The `UserNumberBean` class is generated and opens in the editor. Note the following annotations (shown in *bold*):
@@ -248,7 +252,7 @@ The above code generates a random number between 0 and 10, and outputs the numbe
 
 . Run the project again (click the Run Project ( images:./run-project-btn.png[] ) button, or press F6; fn-F6 on Mac). When you run your project, the server's log file automatically opens in the Output window. 
 
-image::./output1.png[title="The server's log file is automatically opens in the Output window"]
+image::kb/docs/web/output1.png[title="The server's log file is automatically opens in the Output window"]
 
 Notice that you do not see "`Duke's number: `" listed in the output (as would be indicated from the constructor). A `UserNumberBean` object was not created because JSF uses _lazy instantiation_ by default. That is, beans in particular scopes are only created and initialized when they are needed by the application.
 
@@ -290,12 +294,12 @@ public class UserNumberBean implements Serializable {
 
 . Right-click in the editor and choose Insert Code (Alt-Insert; Ctrl-I on Mac). Choose Getter and Setter. 
 
-image::./getter-setter.png[title="Use the IDE to generate accessor methods for properties"]
+image::kb/docs/web/getter-setter.png[title="Use the IDE to generate accessor methods for properties"]
 
 
 . Select the `userNumber` : `Integer` option. Click Generate. 
 
-image::./generate-getters-setters.png[title="Use the IDE to generate accessor methods for properties"]
+image::kb/docs/web/generate-getters-setters.png[title="Use the IDE to generate accessor methods for properties"]
 
 Note that the `getUserNumber()` and `setUserNumber(Integer userNumber)` methods are added to the class.
 
@@ -349,7 +353,7 @@ The above method performs two functions:
 You can press Ctrl-Space on items in the editor to invoke code-completion suggestions and documentation support. Press Ctrl-Space on `FacesContext` to view the class description from the Javadoc.
 
 
-image::./documentation-support.png[title="Press Ctrl-Space to invoke code-completion and documentation support"] 
+image::kb/docs/web/documentation-support.png[title="Press Ctrl-Space to invoke code-completion and documentation support"] 
 
 Click the web browser ( images:./web-browser-icon.png[] ) icon in the documentation window to open the Javadoc in an external web browser.
 
@@ -384,7 +388,7 @@ Both index and response pages already contain the JSF UI components you require 
 
 *Note: *To highlight, either click and drag in the editor with your mouse, or, using the keyboard, hold Shift and press the arrow keys. 
 
-image::./comment-out.png[title="Highlight code, then press Ctrl-/ to comment out code"]
+image::kb/docs/web/comment-out.png[title="Highlight code, then press Ctrl-/ to comment out code"]
 
 Use Ctrl-/ (⌘-/ on Mac) to toggle comments in the editor. You can also apply this keyboard shortcut to other file types, such as Java and CSS.
 
@@ -395,11 +399,11 @@ Use Ctrl-/ (⌘-/ on Mac) to toggle comments in the editor. You can also apply t
 *Note.* You might need to press Ctrl-/ twice to uncomment the code.
 
 
-image::./comment.png[title="Highlight commented-out code, then press Ctrl-/ to uncomment it"]
+image::kb/docs/web/comment.png[title="Highlight commented-out code, then press Ctrl-/ to uncomment it"]
 
 After uncommenting the JSF HTML form component, the editor indicates that the `<h:form>`, `<h:inputText>`, and `<h:commandButton>` tags haven't been declared.
 
-image::./undeclared-component.png[title="The editor provides error messages for undeclared components"]
+image::kb/docs/web/undeclared-component.png[title="The editor provides error messages for undeclared components"]
 
 
 . To declare these components, use the IDE's code completion to add the tag library namespace to the page's `<html>` tag. Place your cursor on any of the undeclared tags and press Alt-Enter and click Enter to add the suggested tag library. (If there are multiple options, make sure to select the tag that is displayed in the editor before clicking Enter.) The JSF HTML tag library namespace is added to the `<html>` tag (shown in *bold* below), and the error indicators disappear.
@@ -468,7 +472,7 @@ Steps 7 through 12 below are optional. If you'd like to quickly build the projec
 
 Switch to the `UserNumberBean` class (Press Ctrl-Tab and choose the file from the list.) Set a breakpoint on the `setUserNumber()` method signature. You can do this by clicking in the left margin. A red badge displays, indicating a method breakpoint has been set.
 
-image::./set-breakpoint.png[title="Click in the editor's left margin to set breakpoints"]
+image::kb/docs/web/set-breakpoint.png[title="Click in the editor's left margin to set breakpoints"]
 
 
 . Click the Debug Project ( images:./breakpoint-btn.png[] ) button in the IDE's main toolbar. A debug session starts, and the project welcome page opens in the browser.
@@ -484,12 +488,12 @@ image::./set-breakpoint.png[title="Click in the editor's left margin to set brea
 
 . Switch back to the IDE and inspect the `UserNumberBean` class. The debugger is suspended within the `setUserNumber()` method. 
 
-image::./debugger-suspended.png[title="Debugger suspends according to breakpoints"]
+image::kb/docs/web/debugger-suspended.png[title="Debugger suspends according to breakpoints"]
 
 
 . Open the Debugger's Variables window (Choose Window > Debugging > Variables, or press Ctrl-Shift-1). You see the variable values for the point at which the debugger is suspended. 
 
-image::./variables-window.png[title="Monitor variable values using the Debugger's Variables window"]
+image::kb/docs/web/variables-window.png[title="Monitor variable values using the Debugger's Variables window"]
 
 In the image above, a value of '`4`' is provided for the `userNumber` variable in the `setUserNumber()` signature. (The number 4 was entered into the form.) '`this`' refers to the `UserNumberBean` object that was created for the user session. Beneath it, you see that the value for the `userNumber` property is currently `null`.
 
@@ -497,7 +501,7 @@ In the image above, a value of '`4`' is provided for the `userNumber` variable i
 
 . In the Debugger toolbar, click the Step Into ( images:./step-into-btn.png[] ) button. The debugger executes the line on which it is currently suspended. The Variables window refreshes, indicating changes from the execution. 
 
-image::./variables-window2.png[title="Variables window refreshes when stepping through code"] 
+image::kb/docs/web/variables-window2.png[title="Variables window refreshes when stepping through code"] 
 
 The `userNumber` property is now set to the value entered in the form.
 
@@ -561,11 +565,11 @@ After uncommenting the JSF HTML form component, the editor indicates that the `<
 
 . To declare these components, use the IDE's code completion to add the tag library namespace to the page's `<html>` tag.
 
-Use the editor's code completion support to add required JSF namespaces to the file. When selecting a JSF or Facelets tag through code completion, the required namespace is automatically added to the document's root element. For more information, see xref:./jsf20-support.adoc#facelets[+JSF 2.x Support in NetBeans IDE+].
+Use the editor's code completion support to add required JSF namespaces to the file. When selecting a JSF or Facelets tag through code completion, the required namespace is automatically added to the document's root element. For more information, see xref:kb/docs/web/jsf20-support.adoc#facelets[+JSF 2.x Support in NetBeans IDE+].
 
 Place your cursor on any of the undeclared tags and press Ctrl-Space. Code completion suggestions and documentation support displays.
 
-image::./code-completion2.png[title="Press Ctrl-Space to invoke code completion suggestions and a documentation pop-up window"]
+image::kb/docs/web/code-completion2.png[title="Press Ctrl-Space to invoke code completion suggestions and a documentation pop-up window"]
 
 Click Enter. (If there are multiple options, make sure to select the tag that is displayed in the editor before clicking Enter.) The JSF HTML tag library namespace is added to the `<html>` tag (shown in *bold* below), and the error indicators disappear.
 
@@ -607,7 +611,7 @@ Click Enter. (If there are multiple options, make sure to select the tag that is
 
 . Run the project (click the Run Project ( images:./run-project-btn.png[] ) button, or press F6; fn-F6 on Mac). When the welcome page displays in the browser, enter a number and click `submit`. You see the response page display similar to the following (provided you did not guess the correct number). 
 
-image::./response2.png[title="View the current status of the project in a browser"]
+image::kb/docs/web/response2.png[title="View the current status of the project in a browser"]
 
 Two things are wrong with the current status of the response page:
 
@@ -620,7 +624,7 @@ The following two steps correct these points, respectively.
 
 . Set the `<h:outputText>` tag's `escape` attribute to `false`. Place your cursor between `outputText` and `value`, insert a space, then press Ctrl-Space to invoke code-completion. Scroll down to choose the `escape` attribute and inspect the documentation. 
 
-image::./escape-false.png[title="Press Ctrl-Space to view possible attribute values and documentation"]
+image::kb/docs/web/escape-false.png[title="Press Ctrl-Space to view possible attribute values and documentation"]
 
 As indicated by the documentation, the `escape` value is set to `true` by default. This means that any characters that would normally be parsed as html are included in the string, as shown above. Setting the value to `false` enables any characters that can be parsed as html to be rendered as such.
 
@@ -661,7 +665,7 @@ The id for the form element is `j_idt5`, and this id is _prepended_ to the id fo
 
 . Run the project again (click the Run Project ( images:./run-project-btn.png[] ) button, or press F6; fn-F6 on Mac). Enter a number in the welcome page, then click Submit. The response page now displays the response message without the `<p>` tags, and the Back button is positioned correctly. 
 
-image::./response3.png[title="View the current status of the project in a browser"]
+image::kb/docs/web/response3.png[title="View the current status of the project in a browser"]
 
 
 . Click the Back button. Because the current value of `UserNumberBean`'s `userNumber` property is bound to the JSF `inputText` component, the number you previously entered is now displayed in the text field.
@@ -675,7 +679,7 @@ If you can't see the server log for any reason, you can open it by switching to 
 
 . Type in the correct number and click Submit. The application compares your input with the currently saved number and displays the appropriate message. 
 
-image::./yay.png[title="Correct response is displayed when entering the matching number"]
+image::kb/docs/web/yay.png[title="Correct response is displayed when entering the matching number"]
 
 
 . Click the Back button again. Notice that the previously entered number is no longer displayed in the text field. Recall that `UserNumberBean`'s `getResponse()` method <<getResponse,invalidates the current user session>> upon guessing the correct number.
@@ -691,9 +695,9 @@ Although you may not have realized it, the `index.xhtml` and `response.xhtml` fi
 
 The purpose of this section is to familiarize you with Facelets templating. For projects containing many views, it is often advantageous to apply a template file that defines the structure and appearance for multiple views. When servicing requests, the application inserts dynamically prepared content into the template file and sends the result back to the client. Although this project only contains two views (the welcome page and the response page), it is easy to see that they contain a lot of duplicated content. You can factor out this duplicated content into a Facelets template, and create template client files to handle content that is specific to the welcome and response pages.
 
-The IDE provides a xref:./jsf20-support.adoc#faceletsTemplate[+Facelets Template wizard+] for creating Facelets templates, and a Facelets Template Client wizard for creating files that rely on a template. This section makes use of these wizards.
+The IDE provides a xref:kb/docs/web/jsf20-support.adoc#faceletsTemplate[+Facelets Template wizard+] for creating Facelets templates, and a Facelets Template Client wizard for creating files that rely on a template. This section makes use of these wizards.
 
-*Note:* The IDE also provides a JSF Page wizard that enables you to create individual Facelets pages for your project. For more information, see xref:./jsf20-support.adoc#jsfPage[+JSF 2.x Support in NetBeans IDE+].
+*Note:* The IDE also provides a JSF Page wizard that enables you to create individual Facelets pages for your project. For more information, see xref:kb/docs/web/jsf20-support.adoc#jsfPage[+JSF 2.x Support in NetBeans IDE+].
 
 * <<templateFile,Creating the Facelets Template File>>
 * <<templateClient,Creating Template Client Files>>
@@ -706,7 +710,7 @@ The IDE provides a xref:./jsf20-support.adoc#faceletsTemplate[+Facelets Template
 2. Type in `template` for the file name.
 3. Choose from any of the eight layout styles and click Finish. (You will be using the existing stylesheet, so it does not matter which layout style you choose.) 
 
-image::./layout-style.png[title="Facelets Template wizard lets you select from common layout styles"] 
+image::kb/docs/web/layout-style.png[title="Facelets Template wizard lets you select from common layout styles"] 
 
 The wizard generates the `template.xhtml` file and accompanying stylesheets based on your selection, and places these in a `resources` > `css` folder within the project's webroot.
 
@@ -812,7 +816,7 @@ http://localhost:8080/jsfDemo/faces/template.xhtml
 ----
 The template file displays as follows: 
 
-image::./facelets-template.png[title="View the Facelets template in a browser"]
+image::kb/docs/web/facelets-template.png[title="View the Facelets template in a browser"]
 
 The project now contains a template file that provides the appearance and structure for all views. You can now create client files that invoke the template.
 
@@ -829,7 +833,7 @@ Create template client files for the welcome and response pages. Name the templa
 2. Type in `greeting` for the file name.
 3. Click the Browse button next to the Template field, then use the dialog that displays to navigate to the `template.xhtml` file you created in the previous section. 
 
-image::./template-client.png[title="The Facelets Template Client wizard"]
+image::kb/docs/web/template-client.png[title="The Facelets Template Client wizard"]
 
 
 . Click Finish. The new `greeting.xhtml` template client file is generated and displays in the editor.
@@ -957,7 +961,7 @@ Note that the file is identical to `greeting.xhtml`, except for the content spec
 
 In the Projects window, double-click Configuration Files > `web.xml` to open it in the editor. Under the Pages tab, change the Welcome Files field to `faces/greeting.xhtml`. 
 
-image::./welcome-files.png[title="Change the Welcome Files entry in the deployment descriptor"]
+image::kb/docs/web/welcome-files.png[title="Change the Welcome Files entry in the deployment descriptor"]
 
 
 . Run the project to see what it looks like in a browser. Press F6 (fn-F6 on Mac), or click the Run Project ( images:./run-project-btn.png[] ) button in the main toolbar. The project is deployed to the GlassFish server, and opens in a browser.
@@ -975,9 +979,9 @@ For more information about JSF 2.x, see the following resources.
 
 === NetBeans Articles and Tutorials
 
-* xref:./jsf20-support.adoc[+JSF 2.x Support in NetBeans IDE+]
-* xref:./jsf20-crud.adoc[+Generating a JavaServer Faces 2.x CRUD Application from a Database+]
-* xref:../../samples/scrum-toys.adoc[+Scrum Toys - The JSF 2.0 Complete Sample Application+]
+* xref:kb/docs/web/jsf20-support.adoc[+JSF 2.x Support in NetBeans IDE+]
+* xref:kb/docs/web/jsf20-crud.adoc[+Generating a JavaServer Faces 2.x CRUD Application from a Database+]
+* xref:samples/scrum-toys.adoc[+Scrum Toys - The JSF 2.0 Complete Sample Application+]
 * xref:kb/docs/javaee/javaee-gettingstarted.adoc[+Getting Started with Java EE Applications+]
 * xref:kb/docs/java-ee.adoc[+Java EE &amp; Java Web Learning Trail+]
 

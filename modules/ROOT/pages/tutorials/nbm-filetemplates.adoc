@@ -31,6 +31,10 @@
 :keywords: Apache NetBeans Platform, Platform Tutorials, NetBeans File Template Module Tutorial
 :page-reviewed: 2023-02-25
 
+ifdef::env-github[]
+:imagesdir: ../../images
+endif::[]
+
 This tutorial demonstrates how to create a NetBeans module providing file templates. Once your users have installed the module in the IDE, the file templates are available to them in the New File wizard. Sharing file templates is easy once you have a module that contains them—the IDE lets you create a binary that you can make available to others, who can then install it through the Plugin Manager.
 
 A file template consists of a template file, an HTML description file, and an icon. The HTML description file displays information about the template in the New File wizard. The icon identifies the template and distinguishes it from other templates in the New File wizard. In this tutorial, you create a new file template by copying the content of an existing file template into an empty file. Then, once you have set up a description file for the New File wizard and a distinguishing icon, you register the template, the HTML description file, and the icon in the NetBeans configuration file, that is, in the  ``layer.xml``  file.
@@ -126,13 +130,13 @@ The template file defines the content that the template will generate for the us
 
 [start=3]
 1. Change the HTML file according to your needs. You can add the following predefined variables, if needed:
-* \${date} inserts the current date, in this format: Feb 16, 2008
-* \${encoding} inserts the default encoding, such as: UTF-8
-* \${name} inserts the name of the file.
-* \${nameAndExt} inserts the name of the file, together with its extension.
-* \${package} inserts the name of the package where the file is created.
-* \${time} inserts the current time, in this format: 7:37:58 PM
-* \${user} inserts the user name.
+* $\{date} inserts the current date, in this format: Feb 16, 2008
+* $\{encoding} inserts the default encoding, such as: UTF-8
+* $\{name} inserts the name of the file.
+* $\{nameAndExt} inserts the name of the file, together with its extension.
+* $\{package} inserts the name of the package where the file is created.
+* $\{time} inserts the current time, in this format: 7:37:58 PM
+* $\{user} inserts the user name.
 
 NOTE:  Your users will be able to set values for these variables in the Template Manager, which is under the Tools menu. There, they will click the Settings button and a file named  ``user.properties``  will open in the Source Editor. In this file, users can set the above values, to override those provided by default. Typically, however, they will not do this, because the default values of the above variables will do the job fine.
 
@@ -251,7 +255,7 @@ import org.openide.util.NbBundle.Messages;
 1. Make sure that the structure of the module is as follows:
 
 
-image::./filetemplates_71_module-structure.png[]
+image::tutorials/filetemplates_71_module-structure.png[]
 
 
 == Building and Installing the Module
@@ -269,7 +273,7 @@ The IDE uses an Ant build script to build and install your module. The build scr
 1. Right-click the project and choose New > Other. The New File dialog opens and displays the new file template. It should look something like this, although your icon will probably be different:
 
 
-image::./filetemplates_71_new-file.png[]
+image::tutorials/filetemplates_71_new-file.png[]
 
 
 [start=4]
@@ -278,7 +282,7 @@ image::./filetemplates_71_new-file.png[]
 
 == Providing Additional Variables
 
-As discussed earlier, you can supplement predefined variables such as ${user} and ${time}, with your own. For example, you can define your template like this, if you want to pass in a variable representing a list of names:
+As discussed earlier, you can supplement predefined variables such as $\{user} and $\{time}, with your own. For example, you can define your template like this, if you want to pass in a variable representing a list of names:
 
 
 [source,html]
@@ -316,7 +320,7 @@ To make sense of this, take the following steps:
 1. Go to the Tools menu. Choose Templates. Open the Java | Java Class template in the editor:
 
 
-image::./freemarker-in-nb-2.png[]
+image::tutorials/freemarker-in-nb-2.png[]
 
 
 [start=2]
@@ -391,5 +395,5 @@ xref:front::community/mailing-lists.adoc[Send Us Your Feedback]
 
 For more information about creating and developing NetBeans Module, see the following resources:
 
-*  xref:../kb/docs/platform.adoc[Other Related Tutorials]
+*  xref:kb/docs/platform.adoc[Other Related Tutorials]
 *  link:https://bits.netbeans.org/dev/javadoc/[NetBeans API Javadoc]
